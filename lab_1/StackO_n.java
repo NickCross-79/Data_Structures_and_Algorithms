@@ -1,5 +1,5 @@
 
-public class Stack {
+public class StackO_n {
 
     char[] stack = new char[20];
     
