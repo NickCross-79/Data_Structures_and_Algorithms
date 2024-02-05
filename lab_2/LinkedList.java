@@ -1,73 +1,79 @@
-public class LinkedList{
+public class LinkedList {
 
     int numNodes = 0;
-    Node head;
-    Node tail = head;
+    Node head = null;
+    Node tail = null;
 
-    public void addFirst(Object obj){
-        Node newNode = new Node();
-        newNode.object = obj;
-        if(head == null){
-            head = newNode;
-            numNodes++;
-            return;
-        }
-        newNode.nextNode = head;
-        head = newNode;
-        numNodes++;
-        return;
-    }
-
-    public void removeFirst(){
-        head = head.nextNode;
-        numNodes--;
-        return;
-    }
-
-    public void addLast(Object obj){
+    public void addFirst(Object obj) {
         Node newNode = new Node();
         newNode.object = obj;
 
-        if(numNodes == 0){
+        if (head == null) {
             head = newNode;
             tail = newNode;
-            numNodes++;
-            return;
+        } else {
+            newNode.nextNode = head;
+            head = newNode;
         }
-        tail.nextNode = newNode;
-        tail = newNode;
+
         numNodes++;
-        return;
     }
 
-    public void removeLast(){
-        Node currentNode = head;
+    public void removeFirst() {
+        if (head != null) {
+            head = head.nextNode;
 
-        if(head.nextNode == null){
-            head = null;
-            tail = head;
+            if (head == null) {
+                tail = null;
+            }
+
             numNodes--;
-            return;
+        }
+    }
+
+    public void addLast(Object obj) {
+        Node newNode = new Node();
+        newNode.object = obj;
+
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            tail.nextNode = newNode;
+            tail = newNode;
         }
 
-        while(currentNode.nextNode.nextNode != null){
-            currentNode = currentNode.nextNode;
+        numNodes++;
+    }
+
+    public void removeLast() {
+        if (head != null) {
+            if (head.nextNode == null) {
+                head = null;
+                tail = null;
+            } else {
+                Node currentNode = head;
+                while (currentNode.nextNode.nextNode != null) {
+                    currentNode = currentNode.nextNode;
+                }
+
+                currentNode.nextNode = null;
+                tail = currentNode;
+            }
+
+            numNodes--;
         }
-        currentNode.nextNode = null;
-        tail = currentNode;
-        numNodes--;
-        return;
     }
 
-    public Node getFirst(){
-        return (numNodes > 0 ? head : null);
+    public Node getFirst() {
+        return head;
     }
 
-    public Node getLast(){
-        return (numNodes > 0 ? tail : null);
+    public Node getLast() {
+        return tail;
     }
 
-    public int size(){
+    public int size() {
         return numNodes;
     }
 }

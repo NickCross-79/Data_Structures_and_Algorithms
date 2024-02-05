@@ -1,6 +1,11 @@
-public class lab2_1 {
+import java.util.Scanner;
+
+public class lab2_3 {
     public static void main(String[] args) {
-        String str = "()(()()()()()())";
+        Scanner s = new Scanner(System.in);
+        //String str = "()(()()()()()())";
+        String str = s.nextLine();
+        s.close();
         System.out.println("This string is "+(checkBalance(str) ? "":"not ")+"balanced");
     }
 

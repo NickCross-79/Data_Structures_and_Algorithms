@@ -5,11 +5,11 @@ public class StackO_1 {
     
     public void push(char item){
         int size = stack.length;
-        if(stack[size-1] != 0){
+        if(stack[size-1] != '\u0000'){
             System.out.println("Stack is full!");
             return;
         }else {
-            stack[size()] = item;
+            stack[lastIndex] = item;
             lastIndex++;
         }
     }
@@ -20,7 +20,7 @@ public class StackO_1 {
             throw new Exception();
         }
         else {
-            stack[size()-1] = 0;
+            stack[lastIndex-1] = '\u0000';
             lastIndex--;
         }
     }
@@ -30,7 +30,7 @@ public class StackO_1 {
             System.out.println("Stack is empty!");
         }
         else {
-            return stack[size()-1];
+            return stack[lastIndex-1];
         }
         return '0';
     }
@@ -40,6 +40,6 @@ public class StackO_1 {
     }
 
     public boolean isEmpty(){
-        return (stack[0] == 0);
+        return (stack[0] == '\u0000');
     }
 }

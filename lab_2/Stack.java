@@ -6,10 +6,9 @@ public class Stack {
         list.addLast(item);
     }
 
-    public void pop() throws Exception{
+    public void pop(){
         if(list.size() == 0) {
             System.out.println("Stack is empty! Cannot pop");
-            throw new Exception();
         }
         else {
             list.removeLast();
