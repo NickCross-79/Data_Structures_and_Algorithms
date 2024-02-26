@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class lab2_5 {
     public static void main(String[] args) {
-        int n = 5;
+        int n = 10;
 
         Random rand1 = new Random();
         Random rand2 = new Random();
@@ -28,7 +28,13 @@ public class lab2_5 {
             System.out.println("l2: "+l2.getLast().object);
         }  
 
+        long start = System.nanoTime();
         LinkedList mergedList = merge(l1.head, l2.head);
+        long end = System.nanoTime();
+
+        long time = end - start;
+
+        
         Node node = mergedList.head;
         while(node != null){
             System.out.print(node.object+" ");
@@ -36,6 +42,7 @@ public class lab2_5 {
                 break;
             node = node.nextNode;
         }
+        System.out.println("Time: "+time);
     }
     
     public static LinkedList merge(Node n1, Node n2){

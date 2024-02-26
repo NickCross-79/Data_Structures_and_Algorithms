@@ -1,0 +1,15 @@
+START(array)
+
+SET len TO array.length
+SET i TO 1;
+
+FOR i IN length
+
+    SET currentElement TO array[i]
+    SET j TO i - 1
+
+    WHILE j GREATER THAN OR EQUAL TO 0 AND array[j] GREATER THAN currentElement
+        SET array[j+1] TO array[j]
+        SET j TO j - 1;
+    
+    SET array[j+1] TO currentElement
