@@ -1,0 +1,24 @@
+Insert(H, key):
+    H[size(H)] = key
+    index = size(H)
+    while index > 1 and H[parent(index)] > H[index]:
+        swap(H[parent(index)], H[index])
+        index = parent(index)
+
+RemoveMin(H):
+    if size(H) == 0:
+        return "Heap is empty"
+    minVal = H[1]
+    H[1] = H[size(H)]
+    size(H) = size(H) - 1
+    index = 1
+    while index <= size(H) / 2:
+        minChildIndex = index * 2
+        if index * 2 + 1 <= size(H) and H[index * 2 + 1] < H[index * 2]:
+            minChildIndex = index * 2 + 1
+        if H[index] > H[minChildIndex]:
+            swap(H[index], H[minChildIndex])
+            index = minChildIndex
+        else:
+            break
+    return minVal

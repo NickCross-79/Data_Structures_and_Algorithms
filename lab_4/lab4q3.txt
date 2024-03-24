@@ -1,0 +1,23 @@
+HeapSort(array):
+    n = size of array
+    for i from n/2 down to 1:
+        heapify(array, i, n)
+    
+    for i from n down to 2:
+        swap(array[1], array[i])
+        n = n - 1
+        heapify(array, 1, n)
+
+heapify(array, index, size):
+    largest = index
+    left = 2 * index
+    right = 2 * index + 1
+    
+    if left ≤ size and array[left] > array[largest]:
+        largest = left
+    if right ≤ size and array[right] > array[largest]:
+        largest = right
+        
+    if largest ≠ index:
+        swap(array[index], array[largest])
+        heapify(array, largest, size)
