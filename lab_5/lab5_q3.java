@@ -17,7 +17,6 @@ public class lab5_q3 {
         System.out.println("------------------");
         bst.inOrderTrav();
         System.out.println("------------------");
-        //drawBST(bst);
         visualizeTree(bst.root, 0);
     }
 
@@ -25,7 +24,7 @@ public class lab5_q3 {
         if (root == null)
             return;
 
-        final int COUNT = 5; // Indentation for better visualization
+        final int COUNT = 5;
         space += COUNT;
 
         visualizeTree(root.right, space);
