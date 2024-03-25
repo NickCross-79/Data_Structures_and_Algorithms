@@ -1,0 +1,36 @@
+remove(root, k):
+    if root is NULL:
+        return NULL
+    if k < root.key:
+        root.left = remove(root.left, k)
+    else if k > root.key:
+        root.right = remove(root.right, k)
+    else:
+        // Case 1: Node to be deleted has no children or only one child
+        if root.left is NULL:
+            temp = root.right
+            delete root
+            return temp
+        else if root.right is NULL:
+            temp = root.left
+            delete root
+            return temp
+        
+        // Case 2: Node to be deleted has two children
+        // Find the inorder successor (smallest in the right subtree)
+        temp = minValueNode(root.right)
+        
+        // Copy the inorder successor's content to this node
+        root.key = temp.key
+        
+        // Delete the inorder successor
+        root.right = remove(root.right, temp.key)
+        
+    return root
+
+minValueNode(node):
+    current = node
+    // Loop down to find the leftmost leaf
+    while current.left is not NULL:
+        current = current.left
+    return current
