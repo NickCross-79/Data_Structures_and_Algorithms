@@ -6,7 +6,7 @@ remove(root, k):
     else if k > root.key:
         root.right = remove(root.right, k)
     else:
-        // Case 1: Node to be deleted has no children or only one child
+        // Node to be deleted has no children or only one child
         if root.left is NULL:
             temp = root.right
             delete root
@@ -16,7 +16,7 @@ remove(root, k):
             delete root
             return temp
         
-        // Case 2: Node to be deleted has two children
+        //  Node to be deleted has two children
         // Find the inorder successor (smallest in the right subtree)
         temp = minValueNode(root.right)
         

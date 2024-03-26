@@ -41,10 +41,11 @@ public class BST {
         if(node.key == key){
             return node;
         }
-    if(node.key > key && node.left != null){
+        if(node.key > key && node.left != null){
             return searchRec(node.left, key);
         }
-        else return searchRec(node.right, key);
+        else if(node.right != null) return searchRec(node.right, key);
+        return null;
     }
 
     public void remove(int key){
